@@ -1,30 +1,23 @@
-var mongoose = require('mongoose');
+var express = require('express');
+var bodyParser = require('body-parser');
 
-mongoose.Promise = global.Promise;  // bcoz mongoose is not having promise by default
-mongoose.connect('mongodb://localhost:27017/TodoApp'); // this is generally the url of the online database
+var { mongoose } = require('./DB/mogoose');
+var { Todo } = require('./model/Todo');
+var { User } = require('./model/User')
 
-//create model
-var Todo = mongoose.model('Todo', {
-    text: {
-        type: String,
-    },
-    completed:{
-        type: Boolean,
-    },
-    completedAt: {
-        type: Number,
-    }
-});
+var app = express();
 
-var newTodo = new Todo({
-    text: 'eat dinner',
-    completed: true,
-    completedAt: 123
-});
+app.use(bodyParser.json());
 
-newTodo.save().then((doc) => {
-    console.log('Saved todo', doc);
-},(e)=>{
-    console.log("unable to save todo")
-});
+app.post('/todos', (req, res)=> {
+    var todo = new Todo({
+        text: req.body.text
+    });
+    todo.save().then((doc) => {
+        res.send(doc);
+    }, (e)=> {
+        res.status(400).send(e);
+    })
+})
 
+app.listen(3000, ()=> console.log('started on port 3000'));
