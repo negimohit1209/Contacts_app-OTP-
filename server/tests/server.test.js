@@ -93,7 +93,7 @@ describe('GET /todos/:id', () => {
             .end(done);
     })
     it('should return a 404 if id in not valid' , (done) => {
-        var id = '123';
+        var id = '123abs';
         request(app)
             .get(`/todos/${id}`)
             .expect(404)
