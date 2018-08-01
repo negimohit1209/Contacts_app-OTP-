@@ -1,4 +1,4 @@
-// var dotenv = require('dotenv').load(); // for loading the environment variables.
+var dotenv = require('dotenv').load(); // for loading the environment variables.
 const _ = require('lodash');
 const express = require('express');
 const bodyParser = require('body-parser');
