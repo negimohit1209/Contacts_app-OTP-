@@ -1,6 +1,6 @@
+var dotenv = require('dotenv').load();
 var express = require('express');
 var bodyParser = require('body-parser');
-var dotenv = require('dotenv');
 const { ObjectID } = require('mongodb');
 
 var { mongoose } = require('./DB/mogoose');

@@ -4,4 +4,5 @@ mongoose.Promise = global.Promise;  // bcoz mongoose is not having promise by de
 var databaseUrl = process.env.MONGODB_URI || 'mongodb://localhost:27017/TodoApp';
 mongoose.connect(databaseUrl); // this is generally the url of the online database
 console.log(databaseUrl);
+console.log(process.env.MONGODB_URI);
 module.exports = {mongoose};
