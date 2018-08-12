@@ -214,7 +214,7 @@ app.post("/contacts/:id/sendMessage", (req, res) => {
           to,
           sender
         });
-        message.save().then(() => res.redirect("/contacts"));
+        message.save().then(() => res.redirect("/historylog"));
       })
       .catch(e => {
         res.render('error', {e});
