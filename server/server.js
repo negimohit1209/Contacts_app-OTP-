@@ -8,6 +8,8 @@ const ejs = require("ejs");
 var methodOverride = require("method-override");
 var twilio = require("twilio");
 const { ObjectID } = require("mongodb");
+const path = require('path');
+
 
 var { mongoose } = require("./DB/mogoose");
 var { User } = require("./model/User");
@@ -18,11 +20,13 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.set('views', path.join(__dirname, ".." , "/views"));
 app.use(express.static(__dirname + "/public"));
-app.use(methodOverride('_method'))
+app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
 
 
+console.log();
 var accountSid = process.env.ACCOUNT_SID;
 var authToken = process.env.AUTH_TOKEN;
 var client = new twilio(accountSid, authToken);
