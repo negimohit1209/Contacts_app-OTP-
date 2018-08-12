@@ -20,13 +20,13 @@ const port = process.env.PORT;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.set('views', path.join(__dirname, ".." , "/views"));
 app.use(express.static(__dirname + "../pubilc"));
+app.set('views', path.join(__dirname, ".." , "/views"));
+
 app.use(methodOverride('_method'));
 app.set("view engine", "ejs");
 
 
-console.log();
 var accountSid = process.env.ACCOUNT_SID;
 var authToken = process.env.AUTH_TOKEN;
 var client = new twilio(accountSid, authToken);
@@ -39,7 +39,7 @@ var client = new twilio(accountSid, authToken);
  * @access   Public
  */
 app.get("/", (req, res) => {
-  res.render("homepage");
+  res.render('homepage');
 });
 
 
