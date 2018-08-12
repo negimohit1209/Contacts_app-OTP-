@@ -27,8 +27,8 @@ app.set("view engine", "ejs");
 
 
 console.log();
-var accountSid = "AC944329bb1a8a8dd5ae108681bd5d0662";
-var authToken = "6260f3d1925ff5a485944f1bfa6d0188";
+var accountSid = process.env.ACCOUNT_SID;
+var authToken = process.env.AUTH_TOKEN;
 var client = new twilio(accountSid, authToken);
 
 
