@@ -35,9 +35,8 @@ var client = new twilio(accountSid, authToken);
  * @access   Public
  */
 app.get("/", (req, res) => {
-  res.render("../pubilc/views/homepage.ejs");
+  res.render("homepage");
 });
-
 
 
 /**
@@ -48,7 +47,7 @@ app.get("/", (req, res) => {
 app.get("/contacts", (req, res) => {
   User.find().then(
     users => {
-      res.render("../pubilc/views/contacts", { users });
+      res.render("contacts", { users });
     },
     e => {
       res.status(400).send(e);
@@ -64,7 +63,7 @@ app.get("/contacts", (req, res) => {
  * @access   Public
  */
 app.get("/contacts/newcontact", (req, res) => {
-  res.render("../pubilc/views/addcontactsform");
+  res.render("addcontactsform");
 });
 
 
@@ -99,7 +98,7 @@ app.post("/contacts", (req, res) => {
     .then(doc => console.log(doc))
     .then(() => res.redirect("/contacts"))
     .catch(e => {
-      res.render('../pubilc/views/error.ejs', {e});
+      res.render('error', {e});
     });
 });
 
@@ -112,7 +111,7 @@ app.post("/contacts", (req, res) => {
  */
 app.get("/contacts/:id", (req, res) => {
   User.findById(req.params.id).then(user => {
-    res.render("../pubilc/views/profile", { user });
+    res.render("profile", { user });
   });
 });
 
@@ -125,7 +124,7 @@ app.get("/contacts/:id", (req, res) => {
  */
 app.get("/contacts/:id/edit", (req, res) => {
   User.findById(req.params.id).then(user => {
-    res.render("../pubilc/views/editcontactsform.ejs", { user });
+    res.render("editcontactsform", { user });
   });
 });
 
@@ -141,7 +140,7 @@ app.put("/contacts/:id", (req, res) => {
   User.findByIdAndUpdate(req.params.id, contacts).then((user) => {
     res.redirect(`/contacts/${req.params.id}`);
   }).catch(e => {
-    res.render('../pubilc/views/error.ejs', {e})
+    res.render('error', {e})
   })
 });
 
@@ -162,7 +161,7 @@ app.delete("/contacts/:id", (req, res) => {
         return res.status(404).send()
     res.redirect(`/contacts`);
 }).catch((err) => {
-  res.render('../pubilc/views/error.ejs', {e})
+  res.render('error', {e})
 });
 });
 
@@ -175,7 +174,7 @@ app.delete("/contacts/:id", (req, res) => {
  */
 app.get("/contacts/:id/sendMessage", (req, res) => {
   User.findById(req.params.id).then(user => {
-    res.render("../pubilc/views/sendMessage", { user });
+    res.render("sendMessage", { user });
   });
 });
 
@@ -208,7 +207,7 @@ app.post("/contacts/:id/sendMessage", (req, res) => {
         message.save().then(() => res.redirect("/contacts"));
       })
       .catch(e => {
-        res.render('../pubilc/views/error.ejs', {e});
+        res.render('error', {e});
       });
   });
 });
@@ -222,7 +221,7 @@ app.post("/contacts/:id/sendMessage", (req, res) => {
  */
 app.get("/historylog", (req, res) => {
   Message.find().then(messages => {
-    res.render("../pubilc/views/historylog.ejs", { messages });
+    res.render("historylog", { messages });
   });
 });
 
