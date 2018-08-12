@@ -31,6 +31,8 @@ var accountSid = process.env.ACCOUNT_SID;
 var authToken = process.env.AUTH_TOKEN;
 var client = new twilio(accountSid, authToken);
 
+
+
 //ROUTES
 
 /**
@@ -49,15 +51,14 @@ app.get("/", (req, res) => {
  * @access   Public
  */
 app.get("/contacts", (req, res) => {
-  // User.find().then(
-  //   users => {
-  //     res.render("contacts", { users });
-  //   },
-  //   e => {
-  //     res.status(400).send(e);
-  //   }
-  // );
-  res.send("Moht negi")
+  User.find().then(
+    users => {
+      res.render("contacts", { users });
+    },
+    e => {
+      res.status(400).send(e);
+    }
+  );
 });
 
 app.get('/abc', (req,res) => {
