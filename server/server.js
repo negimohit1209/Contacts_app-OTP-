@@ -49,14 +49,15 @@ app.get("/", (req, res) => {
  * @access   Public
  */
 app.get("/contacts", (req, res) => {
-  User.find().then(
-    users => {
-      res.render("contacts", { users });
-    },
-    e => {
-      res.status(400).send(e);
-    }
-  );
+  // User.find().then(
+  //   users => {
+  //     res.render("contacts", { users });
+  //   },
+  //   e => {
+  //     res.status(400).send(e);
+  //   }
+  // );
+  res.send("Moht negi")
 });
 
 app.get('/abc', (req,res) => {
