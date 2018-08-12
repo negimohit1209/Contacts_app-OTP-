@@ -1,0 +1,49 @@
+<% include ./partials/header%>
+<div class="container">
+    <h1 style="text-align: center">Create a New Contact.</h1>
+    <div style="width: 30%; margin: 40px auto">
+        <form action="/contacts" method="POST">
+            <div class="form-group">
+                <label for="firstName">First Name</label>
+                <input class="form-control" type="text" name="firstName" placeholder="firstName">
+            </div>
+            <div class="form-group">
+                <label for="lastName">Last Name</label>
+                <input class="form-control" type="text" name="lastName" placeholder="lastName">
+            </div>
+            <div class="form-group">
+                <label for="areaCode">Country Code</label>
+                <input class="form-control" type="number" name="areaCode" placeholder="areaCode">
+            </div>
+            <div class="form-group">
+                <label for="phoneNo">Phone Number</label>
+                <input class="form-control" type="number" name="phoneNo" placeholder="phoneNo">
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input class="form-control" type="text" name="email" placeholder="email">
+            </div>
+            <div class="form-group">
+                <label for="city">City</label>
+                <input class="form-control" type="text" name="city" placeholder="city">
+            </div>
+            
+            <div class="form-group">
+                <label for="country">Country</label>
+                <input class="form-control" type="text" name="country" placeholder="country">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary btn-block">SUBMIT</button>
+            </div>
+        </form>
+        <p>
+             <a href="/contacts">GO Back</a>
+        </p>
+    
+    </div>
+
+    
+</div>
+
+<% include ./partials/footer%>

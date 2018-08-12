@@ -1,0 +1,38 @@
+<% include ./partials/header%>
+ 
+
+    <div class="container">
+        <header class="jumbotron">
+            <div class="container">
+                <h1>Welcome to OTP Sender</h1>
+                <p>
+                    some fake contacts.
+                </p>
+                <p>
+                    <a class="btn btn-primary btn-lg" href="/contacts/newcontact">Add new contact</a>
+                </p>
+            </div>
+
+
+        </header>
+        <h1>Contacts:</h1>
+        <div>
+            <ul class="list-group">
+                <%users.forEach(function(user){%>
+                    <li class="list-group-item" style="display: flex; justify-content: space-between">
+                        <%= user.firstName%>
+                            <%= user.lastName%>
+                            <a href="/contacts/<%= user._id %>" class="btn btn-primary">more info</a>
+                    <% }); %>
+                    </li>    
+            </ul>
+        </div>
+        
+    </div>
+
+
+
+
+
+
+    <% include ./partials/footer%>

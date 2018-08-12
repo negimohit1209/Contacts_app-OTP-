@@ -1,0 +1,26 @@
+<% include ./partials/header%>
+<div class="container">
+        <h2>History Log</h2>         
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>SID</th>
+              <th>Sender</th>
+              <th>Receiver</th>
+              <th>Created At</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% messages.reverse(); %>
+            <%messages.forEach(function(message){%>
+            <tr>
+              <td><%=message.sid%></td>
+              <td><%=message.sender%></td>
+              <td><%=message.to%></td>
+              <td><%=message.dateCreated%></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+<% include ./partials/footer%>

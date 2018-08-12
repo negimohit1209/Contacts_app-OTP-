@@ -21,10 +21,14 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
+    "ejs": "^2.6.1",
     "express": "^4.16.3",
+    "express-session": "^1.15.6",
     "lodash": "^4.17.10",
+    "method-override": "^3.0.0",
     "mongodb": "^2.2.5",
-    "mongoose": "^5.2.5"
+    "mongoose": "^5.2.5",
+    "twilio": "^3.19.1"
   },
   "homepage": "https://github.com/negimohit1209/nodeJS-mongoDB-todo#readme",
   "devDependencies": {
